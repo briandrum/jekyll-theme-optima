@@ -199,6 +199,12 @@ This paragraph has some `code` in it.
 
 
 
+This paragraph has some ~~deletion~~ in it.
+
+    This paragraph has some ~~deletion~~ in it.
+
+
+
 ![Alt Text](https://get.svg.workers.dev/?s=64&f=gray "Image Title")
 
     ![Alt Text](https://get.svg.workers.dev/?s=64&f=gray "Image Title")
