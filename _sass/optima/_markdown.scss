@@ -1,0 +1,133 @@
+.Markdown {
+  font-family: var(--Markdown-fontFamily);
+  font-size: var(--Markdown-fontSize);
+  line-height: var(--Markdown-lineHeight);
+}
+
+.Markdown h1 {
+  font-family: var(--Markdown-h1-fontFamily);
+  color: var(--Markdown-h1-color);
+  font-size: var(--Markdown-h1-fontSize);
+  font-weight: var(--Markdown-h1-fontWeight);
+  line-height: var(--Markdown-h1-lineHeight);
+  margin-top: var(--Markdown-h1-marginTop);
+}
+
+.Markdown h2 {
+  font-family: var(--Markdown-h2-fontFamily);
+  color: var(--Markdown-h2-color);
+  font-size: var(--Markdown-h2-fontSize);
+  font-weight: var(--Markdown-h2-fontWeight);
+  line-height: var(--Markdown-h2-lineHeight);
+  margin-top: var(--Markdown-h2-marginTop);
+}
+
+.Markdown h3 {
+  font-family: var(--Markdown-h3-fontFamily);
+  color: var(--Markdown-h3-color);
+  font-size: var(--Markdown-h3-fontSize);
+  font-weight: var(--Markdown-h3-fontWeight);
+  line-height: var(--Markdown-h3-lineHeight);
+  margin-top: var(--Markdown-h3-marginTop);
+}
+
+.Markdown h4 {
+  font-family: var(--Markdown-h4-fontFamily);
+  color: var(--Markdown-h4-color);
+  font-size: var(--Markdown-h4-fontSize);
+  font-weight: var(--Markdown-h4-fontWeight);
+  line-height: var(--Markdown-h4-lineHeight);
+  margin-top: var(--Markdown-h4-marginTop);
+}
+
+.Markdown blockquote {
+  padding: 0 0 0 1em;
+  border-left: .25em solid var(--Markdown-blockquote-borderColor);
+}
+
+.Markdown time {
+  color: var(--Markdown-time-color);
+  font-family: var(--Markdown-time-fontFamily);
+}
+
+.Markdown p {
+  line-height: var(--Markdown-lineHeight);
+  margin-top: 0.75em;
+}
+
+.Markdown ol {
+  line-height: var(--Markdown-lineHeight);
+  list-style-type: decimal;
+  margin-left: 2em;
+  margin-top: 0.75em;
+}
+
+.Markdown ul {
+  line-height: var(--Markdown-lineHeight);
+  list-style-type: disc;
+  margin-left: 2em;
+  margin-top: 0.75em;
+}
+
+.Markdown li {
+  line-height: var(--Markdown-lineHeight);
+  margin-left: 1.2em;
+}
+
+.Markdown a {
+  color: var(--Markdown-anchor-color);
+  text-decoration-thickness: .04em;
+  text-underline-offset: .04em;
+}
+
+.Markdown del {
+  background-color: var(--Markdown-del-backgroundColor);
+  border-radius: 0.0625em;
+  box-shadow: 0 0 0 0.125em var(--Markdown-del-backgroundColor);
+  color: var(--Markdown-del-textColor);
+  text-decoration-color: currentcolor;
+  text-decoration-line: line-through;
+  text-decoration-thickness: 0.08em;
+}
+
+.Markdown ins {
+  background-color: var(--Markdown-ins-backgroundColor);
+  border-radius: 0.0625em;
+  box-shadow: 0 0 0 0.125em var(--Markdown-ins-backgroundColor);
+  color: var(--Markdown-ins-textColor);
+  text-decoration-color: currentcolor;
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.08em;
+}
+
+.Markdown table {
+  border-collapse: collapse;
+  margin-top: 0.75em;
+}
+
+.Markdown th,
+.Markdown td {
+  border-color: var(--Markdown-table-td-borderColor);
+  border-style: solid;
+  border-width: 1px;
+  font-size: 0.75em;
+  padding: 0.5em;
+  text-align: left;
+}
+
+.Markdown th {
+  font-family: var(--Markdown-table-th-fontFamily);
+  font-size: var(--Markdown-table-th-fontSize);
+  font-weight: var(--Markdown-table-th-fontWeight);
+  line-height: var(--Markdown-table-th-lineHeight);
+  vertical-align: bottom;
+}
+
+.Markdown td {
+  font-family: var(--Markdown-table-td-fontFamily);
+  font-size: var(--Markdown-table-td-fontSize);
+  font-weight: var(--Markdown-table-td-fontWeight);
+  line-height: var(--Markdown-table-td-lineHeight);
+  vertical-align: baseline;
+}

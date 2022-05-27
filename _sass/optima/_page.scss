@@ -1,0 +1,36 @@
+.Page {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--Page-fontFamily);
+  min-height: 100vh;
+}
+
+.Page-header {
+  background-color: var(--Page-header-backgroundColor);
+  box-shadow: 0 1px 0 var(--Page-header-boxShadowColor);
+  color: var(--Page-header-color);
+  flex: 0 0 auto !important;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+.Page-main {
+  background-color: var(--Page-main-backgroundColor);
+  color: var(--Page-main-color);
+  flex: 1 1 auto !important;
+  padding: 5em 0;
+}
+
+.Main {
+  margin: 0 auto;
+  max-width: var(--Main-maxWidth);
+  padding: 4.875em 0.75em;
+  width: 100%;
+}
+
+.Page-footer {
+  background-color: var(--Page-footer-backgroundColor);
+  color: var(--Page-footer-color);
+  flex: 0 0 auto !important;
+}

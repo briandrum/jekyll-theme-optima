@@ -1,0 +1,9 @@
+html {
+  scroll-behavior: smooth;
+}
+
+a:link    { color: var(--base-anchor--link-color); }
+a:visited { color: var(--base-anchor--visited-color); }
+a:hover   { color: var(--base-anchor--hover-color); }
+a:focus   { outline: 1px solid var(--base-anchor--focus-outlineColor); }
+a:active  { color: var(--base-anchor--active-color) ;}

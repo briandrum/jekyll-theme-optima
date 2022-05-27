@@ -1,0 +1,43 @@
+<header class="Header" role="banner">
+  {%- assign default_paths = site.pages | map: "path" -%}
+  {%- assign page_paths = site.header_pages | default: default_paths -%}
+  {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
+  <div class="Header-name">
+    <a class="Header-link" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+  </div>
+
+  {%- if titles_size > 0 -%}
+
+    <nav class="Header-nav">
+      <ol class="Header-navList">
+        {%- for path in page_paths -%}
+          {%- assign my_page = site.pages | where: "path", path | first -%}
+
+          {% if page.url == my_page.url %}
+            {% assign current_page = true %}
+          {% endif %}
+
+          {%- if my_page.title -%}
+          <li class="Header-navListItem {%- if current_page == true %} is-current{%- endif -%}"><a class="Header-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a></li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ol>
+    </nav>
+
+    <details class="Header-details">
+      <summary class="Header-summary">Menu</summary>
+      <nav class="Header-mobileNav">
+        <ol class="Header-mobileNavList">
+        {%- for path in page_paths -%}
+          {%- assign my_page = site.pages | where: "path", path | first -%}
+          {%- if my_page.title -%}
+          <li class="Header-mobileNavListItem"><a class="Header-mobileNavlink" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a></li>
+          {%- endif -%}
+        {%- endfor -%}
+        </ol>
+      </nav>
+    </details>
+
+  {%- endif -%}
+
+</header>
