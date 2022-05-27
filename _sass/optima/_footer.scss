@@ -1,0 +1,45 @@
+.Footer {
+  font-size: var(--Footer-fontSize);
+  font-weight: var(--Footer-fontWeight);
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: var(--Footer-maxWidth);
+  padding: 2em 0.75em;
+  width: 100%;
+}
+
+.Footer-link:link,
+.Footer-link:visited,
+.Footer-link:hover,
+.Footer-link:focus,
+.Footer-link:active {
+  background-color: unset;
+  color: inherit;
+  text-decoration: none;
+}
+
+.Footer > * + * {
+  margin-top: 1em;
+}
+
+.Footer-nav > * + * {
+  margin-top: 1em;
+}
+
+.Footer-navListItem {
+  margin-top: 0.5em;
+}
+
+.Footer-link {
+}
+
+.Footer-finePrint {
+}
+
+@media (min-width: 641px) {
+
+  .Footer-nav > * + * {
+    margin-top: 0;
+  }
+
+}

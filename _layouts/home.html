@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<div class="Markdown">
+  {%- if page.title -%}
+    <h1>{{ page.title }}</h1>
+  {%- endif -%}
+
+  {{ content }}
+
+  {% if site.paginate %}
+    {% assign posts = paginator.posts %}
+  {% else %}
+    {% assign posts = site.posts %}
+  {% endif %}
+
+  {%- if posts.size > 0 -%}
+    {%- if page.list_title -%}
+      <h1>{{ page.list_title }}</h1>
+    {%- endif -%}
+
+    {%- assign date_format = site.optima.date_format | default: "%b %-d, %Y" -%}
+    {%- for post in posts limit:3 -%}
+    <section>
+      <h2>
+        <a href="{{ post.url | relative_url }}">
+          {{ post.title | escape }}
+        </a>
+      </h2>
+      <p>{{ post.date | date: date_format }}</p>
+      {%- if site.show_excerpts -%}
+        {{ post.excerpt }}
+      {%- endif -%}
+    </section>
+    {%- endfor -%}
+
+    <p>
+     <a href="./posts/">All posts</a>
+   </p>
+
+  {%- endif -%}
+
+</div>
