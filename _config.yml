@@ -45,7 +45,7 @@ optima:
 
   # add some fine print in footer
   fine_prints:
-    - text: "Copyright © 2022."
+    - text: "Copyright © 2023."
     - text: "All rights reserved."
 
 # If you want to link only specific pages in your header, uncomment
