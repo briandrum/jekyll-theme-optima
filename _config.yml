@@ -1,57 +1,83 @@
-# _config.yml
+title: Your awesome title
+author:
+  name: GitHub User
+  email: your-email@domain.com
+
+# The `>` after `description:` means to ignore line-breaks until next key.
+# If you want to omit the line-break after the end of text, use `>-` instead.
+description: >
+  Write an awesome description for your new site here. You can edit this line
+  in _config.yml. It will appear in your document head meta (for Google search
+  results) and in your feed.xml site description.
 
 # Build settings
+
 remote_theme: briandrum/jekyll-theme-optima
 
 plugins:
- - jekyll-feed
- - jekyll-remote-theme
- - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-remote-theme
+  - jekyll-seo-tag
 
-# Title & description: https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
-title: Your awesome title
-author:
-  name: Jekyll User
-  email: jekyll.user@example.com
-  twitter: jekyllrb
-description: > # this means to ignore newlines until "show_excerpts:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+# Theme-specific settings
 
-permalink: /:categories/:year/:month/:day/:title/
-
-# paginate: 5
-# paginate_path: "/posts/page:num/"
-
-show_excerpts: false # set to true to show excerpts on the homepage
-excerpt_separator: <!--more-->
-future: false # set to true to generate future-date posts
-
-# Optima date format
-# refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
 optima:
-  date_format: "%b %-d, %Y"
+  # Optima date format
+  # Refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this.
+  #
+  # date_format: "%b %-d, %Y"
 
-  # generate social links in footer
+  # Generate social links in footer.
+  #
   social_links:
-    facebook:
-      page: jekyll
-      group: jekyll
-    github:  jekyll
-    instagram: jekyll
-    linkedin: jekyll
-    twitter: jekyllrb
+  #   - { platform: devto,          user_name: "jekyll",                  user_url: "https://dev.to/jekyll" }
+  #   - { platform: dribbble,       user_name: "jekyll",                  user_url: "https://dribbble.com/jekyll" }
+  #   - { platform: facebook,       user_name: "jekyll",                  user_url: "https://www.facebook.com/jekyll" }
+  #   - { platform: flickr,         user_name: "jekyll",                  user_url: "https://www.flickr.com/photos/jekyll" }
+    - { platform: github,         user_name: "minima",                  user_url: "https://github.com/jekyll/minima" }
+  #   - { platform: google_scholar, user_name: "jekyll",                  user_url: "https://scholar.google.com/citations?user=qc6CJjYAAAAJ" }
+  #   - { platform: instagram,      user_name: "jekyll",                  user_url: "https://www.instagram.com/jekyll" }
+  #   - { platform: keybase,        user_name: "jekyll",                  user_url: "https://keybase.io/jekyll" }
+  #   - { platform: linkedin,       user_name: "jekyll",                  user_url: "https://www.linkedin.com/in/jekyll" }
+  #   - { platform: mastodon,       user_name: "@minima@mastodon.social", user_url: "https://mastodon.social/@minima" }
+  #   - { platform: microdotblog,   user_name: "jekyll",                  user_url: "https://micro.blog/jekyll" }
+  #   - { platform: pinterest,      user_name: "jekyll",                  user_url: "https://www.pinterest.com/jekyll" }
+  #   - { platform: stackoverflow,  user_name: "jekyll",                  user_url: "https://stackoverflow.com/users/1234567/jekyll" }
+  #   - { platform: telegram,       user_name: "jekyll",                  user_url: "https://t.me/jekyll" }
+  #   - { platform: twitter,        user_name: "@jekyllrb",                user_url: "https://twitter.com/jekyllrb" }
+  #   - { platform: youtube,        user_name: "jekyll",                  user_url: "https://www.youtube.com/jekyll" }
+
+  # If you want to link only specific pages in your header, uncomment this and add the path to the pages in
+  # order as they should show up.
+  #
+  header_pages:
+    - posts.md
+    - about.md
+    - search.md
+
+  # If you want to link only specific pages in your footer, uncomment this and add the path to the pages in
+  # order as they should show up.
+  #
+  footer_pages:
+    - index.md
+    - posts.md
+    - about.md
+    - search.md
 
   # add some fine print in footer
-  fine_prints:
+  #
+  footer_legalese:
     - text: "Copyright © 2023."
     - text: "All rights reserved."
 
-# If you want to link only specific pages in your header, uncomment
-# this and add the path to the pages in order as they should show up
-header_pages:
- - index.md
- - posts.md
- - about.md
- - search.md
+  # Plausible analytics: https://plausible.io/
+  #
+  plausible_analytics: briandrum.github.io
+
+# Set to `true` to show excerpts on the homepage.
+#
+# show_excerpts: false
+
+# Set to true to generate future-date posts
+#
+future: false
