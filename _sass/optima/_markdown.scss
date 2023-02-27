@@ -4,6 +4,13 @@
   line-height: var(--Markdown-lineHeight);
 }
 
+.Markdown hr {
+  background-color: var(--Markdown-hr-backgroundColor);
+  border: none;
+  height: 0.125em;
+  margin: 3em 0;
+}
+
 .Markdown h1 {
   font-family: var(--Markdown-h1-fontFamily);
   color: var(--Markdown-h1-color);
@@ -40,14 +47,22 @@
   margin-top: var(--Markdown-h4-marginTop);
 }
 
+.Markdown img {
+  display: block;
+  filter: var(--Markdown-img-filter);
+  max-width: 100%;
+}
+
 .Markdown blockquote {
-  padding: 0 0 0 1em;
+  background-color: var(--Markdown-blockquote-backgroundColor);
+  padding: var(--Markdown-blockquote-padding);
   border-left: .25em solid var(--Markdown-blockquote-borderColor);
 }
 
 .Markdown time {
   color: var(--Markdown-time-color);
   font-family: var(--Markdown-time-fontFamily);
+  font-size: var(--Markdown-time-fontSize);
 }
 
 .Markdown p {
@@ -67,6 +82,13 @@
   list-style-type: disc;
   margin-left: 2em;
   margin-top: 0.75em;
+}
+
+.Markdown ol ol,
+.Markdown ol ul,
+.Markdown ul ol,
+.Markdown ul ul {
+  margin-top: 0;
 }
 
 .Markdown li {

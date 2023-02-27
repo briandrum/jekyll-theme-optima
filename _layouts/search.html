@@ -1,0 +1,67 @@
+---
+layout: default
+---
+
+<script>
+
+var documents, idx;
+
+async function searchDocuments() {
+  let response = await fetch("{{ "/search.json" | relative_url }}")
+  documents = await response.json()
+
+  idx = lunr(function () {
+    this.ref("id")
+    this.field("title")
+    this.field("body")
+
+    documents.forEach(function (doc) {
+      this.add(doc)
+    }, this)
+  });
+}
+
+searchDocuments();
+
+function lunr_search(term) {
+  document.getElementById("lunrsearchresults").innerHTML = "<ul></ul>";
+  if(term) {
+    document.getElementById("lunrsearchresults").innerHTML = "<h1>Search results for “" + term + "”</h1>" + document.getElementById("lunrsearchresults").innerHTML;
+    var results = idx.search(term);
+    if(results.length>0){
+      for (var i = 0; i < results.length; i++) {
+        // more statements
+        var ref = results[i]["ref"];
+        var href = ("fragmentDirective" in document ? documents[ref]["url"] + "#:~:text=" + encodeURIComponent(term) : documents[ref]["url"]);
+        var url = documents[ref]["url"];
+        var title = documents[ref]["title"];
+        var body = documents[ref]["body"].substring(0,160) + "…";
+        document.querySelectorAll("#lunrsearchresults ul")[0].innerHTML = document.querySelectorAll("#lunrsearchresults ul")[0].innerHTML + "<li><article><a href=\"" + href + "\"><h4>" + title + "</h4><p>" + body + "</p><address>" + url + "</address></a></article></li>";
+      }
+    } else {
+      document.querySelectorAll("#lunrsearchresults ul")[0].innerHTML = "<li>No results found…</li>";
+    }
+  }
+  return false;
+}
+
+</script>
+
+<article class="Markdown">
+
+  <header>
+    <h1>{{ page.title | escape }}</h1>
+  </header>
+
+  <div>
+    {{ content }}
+  </div>
+
+  <form onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <p><input type="search" class="form-control" id="lunrsearch" name="q" maxlength="255" value="" /></p>
+  </form>
+  <div id="lunrsearchresults">
+    <ul></ul>
+  </div>
+
+</article>

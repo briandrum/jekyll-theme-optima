@@ -6,8 +6,13 @@
 
   <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#fbfcfd" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#151718" media="(prefers-color-scheme: dark)">
+
+  {%- if jekyll.environment == 'production' and site.optima.plausible_analytics -%}
+    <script defer data-domain="{{ site.optima.plausible_analytics }}" src="https://plausible.io/js/script.js"></script>
+  {%- endif -%}
+
+  <script src="{{ "/assets/js/lunr.js" | relative_url }}"></script>
+  <script src="{{ "/search.json" | relative_url }}"></script>
 
   {%- include custom-head.html -%}
 

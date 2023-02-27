@@ -16,22 +16,26 @@ layout: default
   {% endif %}
 
   {%- if posts.size > 0 -%}
-    <ul>
-      {%- assign date_format = site.optima.date_format | default: "%b %-d, %Y" -%}
-      {%- for post in posts -%}
-      <li>
-        <h1>
+    {%- assign date_format = site.optima.date_format | default: "%b %-d, %Y" -%}
+    {%- for post in posts -%}
+    <section>
+      <hgroup>
+        <h2>
           <a href="{{ post.url | relative_url }}">
             {{ post.title | escape }}
           </a>
-        </h1>
-        <p>{{ post.date | date: date_format }}</p>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
-      </li>
-      {%- endfor -%}
-    </ul>
+        </h2>
+        <div>
+          <time datetime="{{ page.date | date_to_xmlschema }}">
+            {{ post.date | date: date_format }}
+          </time>
+        </div>
+      </hgroup>
+      {%- if site.show_excerpts -%}
+        {{ post.excerpt }}
+      {%- endif -%}
+    </section>
+    {%- endfor -%}
 
     {% if site.paginate %}
       <div>

@@ -33,7 +33,16 @@
 .Footer-link {
 }
 
-.Footer-finePrint {
+.Footer-link--withIcon {
+  display: flex;
+  align-items: center;
+}
+
+.Footer-linkIcon {
+  margin-right: 0.5em;
+}
+
+.Footer-legalese {
 }
 
 @media (min-width: 641px) {

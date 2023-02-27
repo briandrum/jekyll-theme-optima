@@ -21,14 +21,20 @@ layout: default
     {%- endif -%}
 
     {%- assign date_format = site.optima.date_format | default: "%b %-d, %Y" -%}
-    {%- for post in posts limit:3 -%}
+    {%- for post in posts limit:5 -%}
     <section>
-      <h2>
-        <a href="{{ post.url | relative_url }}">
-          {{ post.title | escape }}
-        </a>
-      </h2>
-      <p>{{ post.date | date: date_format }}</p>
+      <hgroup>
+        <h2>
+          <a href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+        </h2>
+        <div>
+          <time datetime="{{ page.date | date_to_xmlschema }}">
+            {{ post.date | date: date_format }}
+          </time>
+        </div>
+      </hgroup>
       {%- if site.show_excerpts -%}
         {{ post.excerpt }}
       {%- endif -%}

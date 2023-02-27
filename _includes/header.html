@@ -1,6 +1,6 @@
 <header class="Header" role="banner">
   {%- assign default_paths = site.pages | map: "path" -%}
-  {%- assign page_paths = site.header_pages | default: default_paths -%}
+  {%- assign page_paths = site.optima.header_pages | default: default_paths -%}
   {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
   <div class="Header-name">
     <a class="Header-link" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>

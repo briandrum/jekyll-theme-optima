@@ -5,7 +5,7 @@
   font-weight: var(--Header-fontWeight);
   height: var(--Header-height);
   justify-content: space-between;
-  line-height: 1;
+  line-height: 1.5;
   margin: 0 auto;
   max-width: var(--Header-maxWidth);
   white-space: nowrap;
@@ -15,7 +15,7 @@
 .Header-name {
   // u-flexTruncateParent
   min-width: 0 !important;
-  padding: 1em;
+  padding: 0.75em 1em;
 }
 
 .Header-nav {
@@ -35,7 +35,7 @@
 
 .Header-link {
   display: block;
-  
+
   // u-textTruncate
   max-width: 100%;
   overflow: hidden !important;

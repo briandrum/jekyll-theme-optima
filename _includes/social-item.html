@@ -1,0 +1,8 @@
+<li class="Footer-navListItem">{% assign entry = include.item %}
+  <a {% unless entry.platform == 'rss' %}rel="me" {% endunless %}href="{{ entry.user_url }}" title="{{ entry.title | default: entry.platform }}" class="Footer-link Footer-link--withIcon">
+    <svg class="Footer-linkIcon Icon">
+      <use xlink:href="{{ '/assets/optima-social-icons.svg#' | append: entry.platform | relative_url }}"></use>
+    </svg>
+    <span>{{ entry.user_name }}</span>
+  </a>
+</li>

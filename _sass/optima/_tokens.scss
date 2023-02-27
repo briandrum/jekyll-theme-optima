@@ -289,6 +289,8 @@
   --Markdown-fontSize: 1em;
   --Markdown-lineHeight: 1.5;
 
+  --Markdown-hr-backgroundColor: var(--slate6);
+
   --Markdown-h1-fontFamily: var(--font-sans);
   --Markdown-h1-color: inherit;
   --Markdown-h1-fontSize: 1.5em;
@@ -318,10 +320,14 @@
   --Markdown-h4-lineHeight: 1.5;
   --Markdown-h4-marginTop: 1em;
 
+  --Markdown-blockquote-backgroundColor: transparent;
   --Markdown-blockquote-borderColor: var(--slate6);
+  --Markdown-blockquote-padding: 0 0 0 1em;
 
   --Markdown-del-backgroundColor: var(--redA2);
   --Markdown-del-textColor: var(--red11);
+
+  --Markdown-img-filter: none;
 
   --Markdown-ins-backgroundColor: var(--greenA2);
   --Markdown-ins-textColor: var(--green11);
@@ -339,6 +345,7 @@
 
   --Markdown-time-color: var(--slate9);
   --Markdown-time-fontFamily: var(--font-sans);
+  --Markdown-time-fontSize: 1em;
 
   /* Page */
   --Page-fontFamily: var(--font-sans);
@@ -357,6 +364,9 @@
 
     /* Page */
     --Page-footer-backgroundColor: var(--black);
+
+    /* Markdown */
+    --Markdown-img-filter: brightness(.8) contrast(1.2);
 
   }
 }
