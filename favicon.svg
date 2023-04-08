@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-899.367,0)">
+        <g id="Favicon" transform="matrix(0.950375,0,0,1.16364,57.2753,0)">
+            <rect x="886.063" y="0" width="269.367" height="220" style="fill:none;"/>
+            <g transform="matrix(3.09609,0,0,2.52866,-2084.36,-209.511)">
+                <g transform="matrix(96.5492,0,0,96.5492,966.513,158.12)">
+                    <path d="M0.025,-0L0.331,-0C0.601,-0 0.729,-0.131 0.729,-0.33C0.729,-0.528 0.603,-0.658 0.327,-0.658L0.025,-0.658L0.025,-0.562L0.106,-0.562L0.106,-0.096L0.025,-0.096L0.025,-0ZM0.295,-0.093L0.295,-0.565L0.338,-0.565C0.475,-0.565 0.525,-0.502 0.525,-0.329C0.525,-0.152 0.479,-0.093 0.343,-0.093L0.295,-0.093Z" style="fill:rgb(237,74,46);fill-rule:nonzero;"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

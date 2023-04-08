@@ -1,0 +1,116 @@
+---
+layout: default
+---
+
+<script>
+
+var documents, idx;
+
+function clear_search() {
+  document.getElementById("lunrsearchresults").innerHTML = "<ol class=\"SearchResults\"></ol>";
+  document.getElementById("lunrsearch").focus();
+}
+
+async function searchDocuments() {
+  let response = await fetch("{{ "/search.json" | relative_url }}")
+  documents = await response.json()
+
+  clear_search()
+
+  idx = lunr(function () {
+    this.ref("id")
+    this.field("title")
+    this.field("body")
+
+    documents.forEach(function (doc) {
+      this.add(doc)
+    }, this)
+  });
+}
+
+searchDocuments();
+
+function lunr_search(term) {
+  clear_search();
+  if(term) {
+    var results = idx.search(term);
+    if(results.length>0){
+      for (var i = 0; i < results.length; i++) {
+        // more statements
+        var ref = results[i]["ref"];
+        var href = ("fragmentDirective" in document ? documents[ref]["url"] + "#:~:text=" + encodeURIComponent(term) : documents[ref]["url"]);
+        var url = documents[ref]["url"].split("/").slice(3,-1).join(" › ");
+        var title = documents[ref]["title"];
+        var body = documents[ref]["body"].substring(0,320) + "…";
+        document.querySelectorAll("#lunrsearchresults ol.SearchResults")[0].innerHTML = document.querySelectorAll("#lunrsearchresults ol.SearchResults")[0].innerHTML + "<li class=\"SearchResults-result\"><a class=\"SearchResults-link u-linkComplex\" href=\"" + href + "\"><address class=\"SearchResults-url\">" + url + "</address><h4 class=\"SearchResults-title u-linkComplexTarget\">" + title + "</h4><p class=\"SearchResults-description\">" + body + "</p></a></li>";
+      }
+    } else {
+      document.querySelectorAll("#lunrsearchresults")[0].innerHTML = "<div class=\"BlankSlate\">No results found…</div>";
+    }
+  }
+  return false;
+}
+
+</script>
+
+<div class="Grid Grid--withGutter">
+  <div class="Grid-cell u-sizeFull u-sizeFull u-md-size3of4 u-lg-size3of4">
+    <div class="u-spaceStackLarge">
+      <form onsubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+        <div class="InputGroup u-flex u-flexAlignItemsStretch">
+          <input autofocus class="TextInput u-size1of2" enterkeyhint="search" id="lunrsearch" maxlength="255" name="q" type="search">
+          <button class="Button" type="reset" onclick="clear_search()">Clear</button>
+          <button class="Button" type="submit">Search</button>
+        </div>
+      </form>
+      <div id="lunrsearchresults">
+        <div>Hang on… Indexing search content…</div>
+      </div>
+    </div>
+  </div>
+  <div class="Grid-cell u-sizeFull u-sizeFull u-md-size1of4 u-lg-size1of4">
+    <div class="u-spaceStackLarge">
+      {%- assign content = content | strip_newlines -%}
+      {%- unless content == "" -%}
+        <aside class="Aside">
+          <div class="Markdown">
+            {{ content }}
+          </div>
+        </aside>
+      {%- endunless -%}
+      <details class="Aside Details">
+        <summary class="Details-summary">Help</summary>
+        <div class="Details-details">
+          <dl class="DescriptionList">
+            <dt class="DescriptionList-term">Starts with</dt>
+            <dd class="DescriptionList-description">
+              <p>Return only pages containing words that start with “foo”, like “food” or “foolish”: <kbd class="Kbd">foo*</kbd></p>
+            </dd>
+            <dt class="DescriptionList-term">Field</dt>
+            <dd class="DescriptionList-description">
+              <p>Return only pages whose title contains “foo”: <kbd class="Kbd">title:foo</kbd></p>
+            </dd>
+            <dd class="DescriptionList-description">
+              <p>Return only pages whose body contains “baz”: <kbd class="Kbd">body:baz</kbd></p>
+            </dd>
+            <dt class="DescriptionList-term">Term presence</dt>
+            <dd class="DescriptionList-description">
+              <p>Return only pages that contain “foo” and optionally “bar”, but do not contain “baz”: <kbd class="Kbd">+foo bar -baz</kbd></p>
+            </dd>
+            <dd class="DescriptionList-description">
+              <p>Return only pages that contain both “foo” and “bar”: <kbd class="Kbd">+foo +bar</kbd></p>
+            </dd>
+            <dt class="DescriptionList-term">Fuzzy matching</dt>
+            <dd class="DescriptionList-description">
+              <p>Return only pages that contain words similar to “foo”, like “fob” and “zoo”: <kbd class="Kbd">foo~1</kbd></p>
+            </dd>
+            <dt class="DescriptionList-term">Boost</dt>
+            <dd class="DescriptionList-description">
+              <p>Return: <kbd class="Kbd">foo^10 bar^5 baz</kbd></p>
+            </dd>
+          </dl>
+        </div>
+      </details>
+    </div>
+  </div>
+</div>

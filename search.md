@@ -4,4 +4,4 @@ title: Search
 permalink: /search/
 ---
 
-For best search results…
+Try searching for <kbd>sidewalk</kbd> or <kbd>bicycle</kbd>.

@@ -1,1 +1,15 @@
 // Placeholder to allow overriding predefined variables smoothly.
+
+:root {
+  /* kbd */
+  --kbd-backgroundColor: var(--greenA2);
+  --kbd-borderColor: var(--green6);
+  --kbd-borderRadius: 3px;
+  --kbd-borderStyle: solid;
+  --kbd-borderWidth: 1px;
+  --kbd-color: var(--green11);
+  --kbd-fontSize: smaller;
+  --kbd-letterSpacing: 0.05em;
+  --kbd-padding: 3px 8px 1px;
+  --kbd-whiteSpace: nowrap;
+}

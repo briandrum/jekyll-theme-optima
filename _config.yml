@@ -1,3 +1,9 @@
+################################################################################
+#                                                                              #
+# Jekyll Configuration Settings                                                #
+#                                                                              #
+################################################################################
+
 title: Your awesome title
 author:
   name: GitHub User
@@ -19,13 +25,30 @@ plugins:
   - jekyll-remote-theme
   - jekyll-seo-tag
 
-# Theme-specific settings
+# Set to `true` to show excerpts on the homepage.
+show_excerpts: false
+
+# Set to true to generate future-date posts
+future: false
+
+permalink: /:categories/:year-:month-:day-:title/
+
+timezone: America/New_York
+
+# Include these files/folders that are excluded by default
+# include: [ "/.well-known" ]
+
+################################################################################
+#                                                                              #
+# Optima Theme Configuration Settings                                          #
+#                                                                              #
+################################################################################
 
 optima:
   # Optima date format
   # Refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this.
   #
-  # date_format: "%b %-d, %Y"
+  date_format: "%b %-d, %Y"
 
   # Generate social links in footer.
   #
@@ -74,10 +97,12 @@ optima:
   #
   plausible_analytics: briandrum.github.io
 
-# Set to `true` to show excerpts on the homepage.
-#
-# show_excerpts: false
+################################################################################
+#                                                                              #
+# Jekyll Collections                                                           #
+#                                                                              #
+################################################################################
 
-# Set to true to generate future-date posts
-#
-future: false
+# collections:
+#   stuff:
+#     output: true
