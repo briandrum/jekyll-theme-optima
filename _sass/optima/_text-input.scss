@@ -1,0 +1,10 @@
+.TextInput {
+  background-color: var(--slate1);
+  border-color: currentColor;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.InputGroup > * + * {
+  margin-left: -1px;
+}

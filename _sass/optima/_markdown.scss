@@ -53,6 +53,19 @@
   max-width: 100%;
 }
 
+.Markdown kbd {
+  background-color: var(--Markdown-kbd-backgroundColor);
+  border-color: var(--Markdown-kbd-borderColor);
+  border-radius: var(--Markdown-kbd-borderRadius);
+  border-style: var(--Markdown-kbd-borderStyle);
+  border-width: var(--Markdown-kbd-borderWidth);
+  color: var(--Markdown-kbd-color);
+  font-size: var(--Markdown-kbd-fontSize);
+  letter-spacing: var(--Markdown-kbd-letterSpacing);
+  padding: var(--Markdown-kbd-padding);
+  white-space: var(--Markdown-kbd-whiteSpace);
+}
+
 .Markdown blockquote {
   background-color: var(--Markdown-blockquote-backgroundColor);
   padding: var(--Markdown-blockquote-padding);
@@ -67,6 +80,9 @@
 
 .Markdown p {
   line-height: var(--Markdown-lineHeight);
+}
+
+.Markdown p:not(:first-child) {
   margin-top: 0.75em;
 }
 

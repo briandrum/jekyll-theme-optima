@@ -1,0 +1,18 @@
+.Details {
+  margin-left: -0.75em;
+  padding-left: 0.75em;
+}
+
+.Details-summary {
+  cursor: default;
+  font-size: small;
+  font-weight: 700;
+  line-height: 1.5em;
+  -webkit-user-select: none;
+          user-select: none;
+}
+
+.Details-details {
+  margin-top: 1em;
+  padding-left: 1em;
+}

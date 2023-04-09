@@ -1,0 +1,13 @@
+.Aside {
+  background-color: var(--slate2);
+  border-radius: 8px;
+  color: var(--slate11);
+  font-size: small;
+  line-height: 1.5em;
+  margin: -1em;
+  padding: 1em;
+}
+
+.Aside + .Aside {
+  margin-top: 3em;
+}

@@ -1,0 +1,26 @@
+.DescriptionList-term {
+  font-size: small;
+  font-weight: 600;
+  line-height: 1.25em;
+}
+
+.DescriptionList-description {
+  font-size: small;
+  line-height: 1.5em;
+}
+
+.DescriptionList-description p + p {
+  margin-top: 0.25em;
+}
+
+.DescriptionList-term + .DescriptionList-description {
+  margin-top: 0.25em;
+}
+
+.DescriptionList-description + .DescriptionList-description {
+  margin-top: 0.5em;
+}
+
+.DescriptionList-description + .DescriptionList-term {
+  margin-top: 1em;
+}

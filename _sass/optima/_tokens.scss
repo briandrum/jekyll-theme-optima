@@ -264,6 +264,18 @@
   --base-anchor--focus-outlineColor: var(--blue11);
   --base-anchor--active-color: var(--blue11);
 
+  /* kbd */
+  --kbd-backgroundColor: var(--greenA2);
+  --kbd-borderColor: var(--green6);
+  --kbd-borderRadius: 3px;
+  --kbd-borderStyle: solid;
+  --kbd-borderWidth: 1px;
+  --kbd-color: var(--green11);
+  --kbd-fontSize: smaller;
+  --kbd-letterSpacing: 0.05em;
+  --kbd-padding: 3px 8px 1px;
+  --kbd-whiteSpace: nowrap;
+
   /* Footer */
   --Footer-fontSize: 0.875em;
   --Footer-fontWeight: 300;
@@ -279,6 +291,18 @@
   --Header-mobileNav-color: var(--slate11);
   --Header-mobileNavList-boxShadowColor: var(--slate7);
   --Header-mobileNavListItem-boxShadowColor: var(--slate6);
+
+  /* Kbd */
+  --Kbd-backgroundColor: var(--kbd-backgroundColor);
+  --Kbd-borderColor: var(--kbd-borderColor);
+  --Kbd-borderRadius: var(--kbd-borderRadius);
+  --Kbd-borderStyle: var(--kbd-borderStyle);
+  --Kbd-borderWidth: var(--kbd-borderWidth);
+  --Kbd-color: var(--kbd-color);
+  --Kbd-fontSize: var(--kbd-fontSize);
+  --Kbd-letterSpacing: var(--kbd-letterSpacing);
+  --Kbd-padding: var(--kbd-padding);
+  --Kbd-whiteSpace: var(--kbd-whiteSpace);
 
   /* Main */
   --Main-maxWidth: var(--max-width);
@@ -331,6 +355,17 @@
 
   --Markdown-ins-backgroundColor: var(--greenA2);
   --Markdown-ins-textColor: var(--green11);
+
+  --Markdown-kbd-backgroundColor: var(--kbd-backgroundColor);
+  --Markdown-kbd-borderColor: var(--kbd-borderColor);
+  --Markdown-kbd-borderRadius: var(--kbd-borderRadius);
+  --Markdown-kbd-borderStyle: var(--kbd-borderStyle);
+  --Markdown-kbd-borderWidth: var(--kbd-borderWidth);
+  --Markdown-kbd-color: var(--kbd-color);
+  --Markdown-kbd-fontSize: var(--kbd-fontSize);
+  --Markdown-kbd-letterSpacing: var(--kbd-letterSpacing);
+  --Markdown-kbd-padding: var(--kbd-padding);
+  --Markdown-kbd-whiteSpace: var(--kbd-whiteSpace);
 
   --Markdown-table-td-borderColor: var(--slateA6);
   --Markdown-table-td-fontFamily: var(--font-sans);
