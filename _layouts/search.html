@@ -79,11 +79,12 @@ function lunr_search(term) {
         var body = documents[ref]["body"].substring(0,320) + "…";
         document.querySelectorAll("#search-results ol.SearchResults")[0].innerHTML = document.querySelectorAll("#search-results ol.SearchResults")[0].innerHTML + "<li class=\"SearchResults-result\"><a class=\"SearchResults-link u-linkComplex\" href=\"" + href + "\"><address class=\"SearchResults-url\">" + url + "</address><h4 class=\"SearchResults-title u-linkComplexTarget\">" + title + "</h4><p class=\"SearchResults-description\">" + body + "</p></a></li>";
       }
+      focusFormElement("search-submit");;
     } else {
       updateSearchResults("search-results", "<div class=\"BlankSlate\">No matches found.</div>");
+      focusFormElement("search-input");;
     }
   }
-  focusFormElement("search-submit");;
   return false;
 }
 
