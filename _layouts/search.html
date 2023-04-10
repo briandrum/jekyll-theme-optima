@@ -90,7 +90,7 @@ function lunr_search(term) {
 </script>
 
 <div class="Grid Grid--withGutter">
-  <div class="Grid-cell u-sizeFull u-sizeFull u-md-size3of4 u-lg-size3of4">
+  <div class="Grid-cell u-sizeFull u-sm-sizeFull u-md-size3of4 u-lg-size3of4">
     <div class="u-spaceStackLarge">
       <form action="https://html.duckduckgo.com/html" method="get" onsubmit="return lunr_search(document.getElementById('search-input').value);">
         <div class="InputGroup u-flex u-flexAlignItemsStretch u-flexJustifyContentStretch">
@@ -108,7 +108,7 @@ function lunr_search(term) {
       </div>
     </div>
   </div>
-  <div class="Grid-cell u-sizeFull u-sizeFull u-md-size1of4 u-lg-size1of4">
+  <div class="Grid-cell u-sizeFull u-sm-sizeFull u-md-size1of4 u-lg-size1of4">
     <div class="u-spaceStackLarge">
       {%- assign content = content | strip_newlines -%}
       {%- unless content == "" -%}
