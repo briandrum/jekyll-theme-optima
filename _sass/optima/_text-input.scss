@@ -5,6 +5,11 @@
   border-width: 1px;
 }
 
+.TextInput[type=search] {
+  -webkit-appearance: none;
+  outline-offset: 0;
+}
+
 .InputGroup > * + * {
   margin-left: -1px;
 }
