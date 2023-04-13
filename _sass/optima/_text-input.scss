@@ -10,6 +10,12 @@
   outline-offset: 0;
 }
 
+.InputGroup {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
 .InputGroup > * + * {
   margin-left: -1px;
 }

@@ -6,6 +6,28 @@ layout: default
 
 <script>
 
+var documents, idx;
+
+async function readySearchDocuments() {
+  let params = new URLSearchParams(document.location.search);
+  let term = params.get("q") ? params.get("q") : "";
+  let response = await fetch("{{ "/search.json" | relative_url }}")
+  document.getElementById('search-input').value = term;
+
+  documents = await response.json()
+  setElementDisabled("search-fieldset", false);
+  resetSearchForm();
+  idx = lunr(function () {
+    this.ref("id")
+    this.field("title")
+    this.field("body")
+    documents.forEach(function (doc) {
+      this.add(doc)
+    }, this)
+  });
+  searchDocuments(term);
+}
+
 function removeElementAttr(id, val) {
   document.getElementById(id).removeAttribute(val);
 }
@@ -16,14 +38,6 @@ function setElementDisabled(id, val) {
 
 function focusFormElement(id) {
   document.getElementById(id).focus();
-}
-
-function readySearchForm() {
-  removeElementAttr("search-input", "value");
-  setElementDisabled("search-input", true);
-  setElementDisabled("search-clear", true);
-  setElementDisabled("search-submit", true);
-  updateSearchResults("search-results", "<div class=\"BlankSlate\">Preparing search index…</div>");
 }
 
 function resetSearchForm() {
@@ -39,39 +53,18 @@ function resetSearchResults() {
   updateSearchResults("search-results", "<ol class=\"SearchResults\"></ol>");
 }
 
-var documents, idx;
-
-async function searchDocuments() {
-  let response = await fetch("{{ "/search.json" | relative_url }}")
-  documents = await response.json()
-
-  setElementDisabled("search-input", false)
-  setElementDisabled("search-clear", false)
-  setElementDisabled("search-submit", false)
-
-  resetSearchForm();
-
-  idx = lunr(function () {
-    this.ref("id")
-    this.field("title")
-    this.field("body")
-
-    documents.forEach(function (doc) {
-      this.add(doc)
-    }, this)
-  });
+function readySearchForm() {
+  removeElementAttr("search-input", "value");
+  setElementDisabled("search-fieldset", true);
+  updateSearchResults("search-results", "<div class=\"BlankSlate\">Preparing search index…</div>");
 }
 
-searchDocuments();
-
-function lunr_search(term) {
+function searchDocuments(term) {
   resetSearchResults();
-
-  if(term) {
+  if (term) {
     var results = idx.search(term);
     if(results.length>0){
       for (var i = 0; i < results.length; i++) {
-        // more statements
         var ref = results[i]["ref"];
         var href = ("fragmentDirective" in document ? documents[ref]["url"] + "#:~:text=" + encodeURIComponent(term) : documents[ref]["url"]);
         var url = documents[ref]["url"].split("/").slice(3,-1).join(" › ");
@@ -80,7 +73,8 @@ function lunr_search(term) {
         document.querySelectorAll("#search-results ol.SearchResults")[0].innerHTML = document.querySelectorAll("#search-results ol.SearchResults")[0].innerHTML + "<li class=\"SearchResults-result\"><a class=\"SearchResults-link u-linkComplex\" href=\"" + href + "\"><address class=\"SearchResults-url\">" + url + "</address><h4 class=\"SearchResults-title u-linkComplexTarget\">" + title + "</h4><p class=\"SearchResults-description\">" + body + "</p></a></li>";
       }
       focusFormElement("search-submit");;
-    } else {
+    }
+    else {
       updateSearchResults("search-results", "<div class=\"BlankSlate\">No matches found.</div>");
       focusFormElement("search-input");;
     }
@@ -88,17 +82,44 @@ function lunr_search(term) {
   return false;
 }
 
+function onPageLoad() {
+  readySearchForm();
+  readySearchDocuments();
+}
+
+function updateSearchTerm(term) {
+  history.pushState({ term: term }, document.title.replace('Search', 'Search results for “' + term + '”'), "?q=" + term);
+}
+
+function onFormReset() {
+  history.pushState({ term: "" }, document.title, window.location.href.split('?')[0]);
+  resetSearchForm();
+}
+
+function onFormSubmit() {
+  let term = document.getElementById('search-input').value;
+  updateSearchTerm(term);
+  searchDocuments(term);
+  return false;
+}
+
+window.addEventListener("popstate", (event) => {
+  let term = ((event.state && event.state.term) ? event.state.term : "");
+  document.getElementById('search-input').value = term;
+  searchDocuments(term);
+});
+
 </script>
 
 <div class="Grid Grid--withGutter">
   <div class="Grid-cell u-sizeFull u-sm-sizeFull u-md-size3of4 u-lg-size3of4">
     <div class="u-spaceStackLarge">
-      <form action="https://html.duckduckgo.com/html" method="get" onsubmit="return lunr_search(document.getElementById('search-input').value);">
-        <div class="InputGroup u-flex u-flexAlignItemsStretch u-flexJustifyContentStretch">
+      <form action="https://html.duckduckgo.com/html" method="get" onsubmit="return onFormSubmit();"> <!-- searchDocuments(document.getElementById('search-input').value); -->
+        <fieldset class="InputGroup u-flex u-flexAlignItemsStretch u-flexJustifyContentStretch" id="search-fieldset">
           <input autofocus class="TextInput u-size1of2" enterkeyhint="search" id="search-input" maxlength="255" name="q" placeholder="example: bicycle" type="search" value="site:{{ search_domain }} ">
-          <button class="Button" id="search-clear" type="reset" onclick="resetSearchForm()">Clear</button>
+          <button class="Button" id="search-clear" type="reset" onclick="return onFormReset();">Clear</button>
           <button class="Button" id="search-submit" type="submit">Search</button>
-        </div>
+        </fieldset>
       </form>
       <div id="search-results">
         <div class="BlankSlate">
@@ -156,5 +177,5 @@ function lunr_search(term) {
   </div>
 </div>
 <script>
-  readySearchForm();
+  onPageLoad();
 </script>
