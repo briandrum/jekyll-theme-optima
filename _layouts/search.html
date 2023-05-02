@@ -114,7 +114,7 @@ window.addEventListener("popstate", (event) => {
 <div class="Grid Grid--withGutter">
   <div class="Grid-cell u-sizeFull u-sm-sizeFull u-md-size3of4 u-lg-size3of4">
     <div class="u-spaceStackLarge">
-      <form action="https://html.duckduckgo.com/html" method="get" onsubmit="return onFormSubmit();"> <!-- searchDocuments(document.getElementById('search-input').value); -->
+      <form action="https://html.duckduckgo.com/html" method="get" onsubmit="return onFormSubmit();">
         <fieldset class="InputGroup u-flex u-flexAlignItemsStretch u-flexJustifyContentStretch" id="search-fieldset">
           <input autofocus class="TextInput u-size1of2" enterkeyhint="search" id="search-input" maxlength="255" name="q" placeholder="example: bicycle" type="search" value="site:{{ search_domain }} ">
           <button class="Button" id="search-clear" type="reset" onclick="return onFormReset();">Clear</button>

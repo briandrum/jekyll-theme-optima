@@ -289,7 +289,7 @@
   /* Header */
   --Header-fontSize: 16px;
   --Header-fontWeight: 600;
-  --Header-height: 4em;
+  --Header-height: 4rem;
   --Header-maxWidth: var(--max-width);
   --Header-mobileNav-backgroundColor: var(--slate1);
   --Header-mobileNav-boxShadowColor: var(--slate1);
@@ -382,6 +382,8 @@
   --Markdown-table-th-fontSize: inherit;
   --Markdown-table-th-fontWeight: bold;
   --Markdown-table-th-lineHeight: 1.5;
+
+  --Markdown-target-scrollMarginTop: var(--Header-height);
 
   --Markdown-time-color: var(--slate9);
   --Markdown-time-fontFamily: var(--font-sans);

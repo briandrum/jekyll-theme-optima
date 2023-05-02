@@ -47,6 +47,10 @@
   margin-top: var(--Markdown-h4-marginTop);
 }
 
+.Markdown :is(h1, h2, h3, h4, h5, h6, p, li)[id]:target {
+  scroll-margin-top: var(--Markdown-target-scrollMarginTop);
+}
+
 .Markdown img {
   display: block;
   filter: var(--Markdown-img-filter);
