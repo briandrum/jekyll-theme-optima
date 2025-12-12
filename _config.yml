@@ -72,7 +72,9 @@ optima:
 
   # Plausible analytics: https://plausible.io/
   #
-  plausible_analytics: briandrum.github.io
+  # plausible_analytics:
+  #   enabled: true
+  #   src: ""
 
 # Set to `true` to show excerpts on the homepage.
 #

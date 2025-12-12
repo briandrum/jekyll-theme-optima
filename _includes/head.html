@@ -7,8 +7,14 @@
   <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
   <meta name="color-scheme" content="light dark">
 
-  {%- if jekyll.environment == 'production' and site.optima.plausible_analytics -%}
-    <script defer data-domain="{{ site.optima.plausible_analytics }}" src="https://plausible.io/js/script.js"></script>
+  {%- if jekyll.environment == 'production' and site.optima.plausible_analytics.enabled -%}
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://{{ site.optima.plausible_analytics.src }}"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+
   {%- endif -%}
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
